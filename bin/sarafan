@@ -1,0 +1,8 @@
+#!/usr/bin/env node
+
+// Nodejs libs
+var fs   = require('fs),
+    path = require('path');
+
+// Run sarafan
+require(dir).cli();
