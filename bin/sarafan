@@ -1,8 +1,16 @@
 #!/usr/bin/env node
 
 // Nodejs libs
-var fs   = require('fs),
-    path = require('path');
+var fs   = require('fs'),
+    path = require('path'),
+    findup = require('../lib/util/findup'),
+    // Internal sarafan libs    
+    dir = path.resolve(findup(process.cwd(), 'sarafan.js'), 
+          '../node_modules/sarafan');
+
+if ( !fs.existsSync(dir) ) {
+  dir = '../lib/sarafan';
+}
 
 // Run sarafan
 require(dir).cli();

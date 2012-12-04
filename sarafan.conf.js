@@ -1,5 +1,9 @@
-// sarafan - display help
-// sarafan deploy - deploy project
+// sarafan --help (-h)
+// sarafan --version (-v)
+// sarafan --verbose
+
+// sarafan - deploy default project
+// sarafan deploy - deploy default project
 // sarafan cleanup - clean up all releases
 // sarafan history - display all deployments
 // sarafan rollback - rollback to previous version
@@ -28,7 +32,7 @@ module.exports = function(sarafan) {
       password: ''
     },
 
-    defaults_deploy: ['tests', 'productions'],
+    defaults: ['tests', 'productions'],
 
     deploy: {
       tests: {
@@ -112,8 +116,7 @@ module.exports = function(sarafan) {
     }
   });
 
-  sarafan.loadTasks('tasks');
-  sarafan.registerTask('maintenance', 'Перевод сайта в режим "Технические работы" и обратно',
+  sarafan.addTask('maintenance', 'Перевод сайта в режим "Технические работы" и обратно',
     function(turn_on){
     }
   );
